@@ -12,13 +12,8 @@ export default function NavBar({ pathname }) {
 			<div className="container">
 				{routes.map((e, i) => {
 					return (
-						<Link href={e[1]}>
-							<a
-								key={'navitem ' + e[0] + i}
-								className={e[1] === pathname ? 'active' : ''}
-							>
-								{e[0]}
-							</a>
+						<Link key={'navitem ' + e[0] + i} href={e[1]}>
+							<a className={e[1] === pathname ? 'active' : ''}>{e[0]}</a>
 						</Link>
 					);
 				})}
