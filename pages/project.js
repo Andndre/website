@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import NavBar from '../components/NavBar';
+import PageWrapper from '../components/PageWrapper';
 
 export default function Home() {
 	return (
@@ -10,9 +11,9 @@ export default function Home() {
 				<link rel="icon" type="image/jpeg" href="/favicon.jpeg" />
 			</Head>
 			<NavBar pathname="/project"></NavBar>
-			<main className="container">
+			<PageWrapper>
 				<h1 className="center">Project page coming soon</h1>
-			</main>
+			</PageWrapper>
 		</>
 	);
 }
