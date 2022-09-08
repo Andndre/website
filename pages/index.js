@@ -8,7 +8,6 @@ export default function Home() {
 	const [hero, setHero] = useState('');
 	const heros = [
 		'"Hello, world!" My name is Andre',
-		'I am a web developer',
 		'I am a frontend developer',
 		'I am a backend developer',
 		'I am an UI/UX designer',
