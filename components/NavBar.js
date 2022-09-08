@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function NavBar({ pathname }) {
 	const routes = [
 		['Home', '/'],
@@ -10,13 +12,14 @@ export default function NavBar({ pathname }) {
 			<div className="container">
 				{routes.map((e, i) => {
 					return (
-						<a
-							key={'navitem ' + e[0] + i}
-							className={e[1] === pathname ? 'active' : ''}
-							href={e[1]}
-						>
-							{e[0]}
-						</a>
+						<Link href={e[1]}>
+							<a
+								key={'navitem ' + e[0] + i}
+								className={e[1] === pathname ? 'active' : ''}
+							>
+								{e[0]}
+							</a>
+						</Link>
 					);
 				})}
 			</div>

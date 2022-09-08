@@ -10,7 +10,9 @@ export default function Home() {
 				<link rel="icon" type="image/jpeg" href="/favicon.jpg" />
 			</Head>
 			<NavBar pathname="/contact"></NavBar>
-			<h1 className="center">Contact page coming soon</h1>
+			<main className="container">
+				<h1 className="center">Contact page coming soon</h1>
+			</main>
 		</>
 	);
 }
