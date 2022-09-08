@@ -24,12 +24,6 @@ export default function Home() {
 		let isDeleting = false;
 		let decrementedDelayPeriod = delayPeriod;
 		const interval = setInterval(() => {
-			// console.table({
-			// 	currentIndex,
-			// 	currentCharIndex,
-			// 	isDeleting,
-			// 	decrementedDelayPeriod,
-			// });
 			const currentHero = heros[currentIndex];
 			if (currentCharIndex === currentHero.length) {
 				isDeleting = true;
@@ -51,7 +45,6 @@ export default function Home() {
 				}
 				return;
 			}
-			console.log('appending');
 			const currentChar = currentHero[currentCharIndex];
 			current = current + currentChar;
 			setHero(current);
