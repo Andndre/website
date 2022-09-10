@@ -1,0 +1,16 @@
+/* md */
+@media (min-width: 768px) {
+	h1 {
+		font-size: 3.5em;
+	}
+	h2 {
+		font-size: 2em;
+	}
+	p {
+		font-size: 1.2em;
+	}
+	#hero p {
+		letter-spacing: 1.5em;
+		font-size: 1.35em;
+	}
+}

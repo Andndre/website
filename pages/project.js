@@ -8,7 +8,7 @@ export default function Home() {
 			<Head>
 				<title>Agung Andre - Project</title>
 				<meta name="description" content="Agung Andre's project" />
-				<link rel="icon" type="image/jpeg" href="/favicon.jpeg" />
+				<link rel="icon" type="image/jpeg" href="/favicon.jpg" />
 			</Head>
 			<NavBar pathname="/project"></NavBar>
 			<PageWrapper>

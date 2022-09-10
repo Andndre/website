@@ -1,0 +1,22 @@
+#hero {
+	background: radial-gradient(
+		circle,
+		rgba(255, 255, 255, 1) 0%,
+		rgba(237, 237, 237, 1) 100%
+	);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+#hero span {
+	margin-top: 1.2em;
+	font-family: monospace;
+	font-size: 1.2em;
+	color: gray;
+}
+
+.secondary-hero {
+	display: flex;
+	justify-content: space-between;
+}

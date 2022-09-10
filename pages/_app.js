@@ -2,6 +2,9 @@ import Router from 'next/router';
 import NProgress from 'nprogress';
 import 'nprogress/nprogress.css';
 import '../styles/globals.css';
+import '../styles/home.css';
+import '../styles/md.css';
+import '../styles/lg.css';
 
 NProgress.configure({ showSpinner: false, parent: 'main' });
 

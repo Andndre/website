@@ -1,0 +1,46 @@
+/* lg */
+@media (min-width: 1024px) {
+	h1 {
+		font-size: 4em;
+	}
+	h2 {
+		font-size: 2.5em;
+	}
+	p {
+		font-size: 1.2em;
+	}
+
+	.section-flex-reverse {
+		display: flex;
+		flex-direction: row-reverse;
+	}
+
+	.page-wrapper {
+		padding-top: 41px;
+	}
+
+	#nav-bar .item {
+		display: block;
+	}
+
+	.nav-items.mobile {
+		display: none;
+	}
+
+	.nav-items.desktop {
+		display: flex;
+		gap: 45px;
+	}
+
+	.nav-item-left {
+		gap: 45px;
+		align-items: center;
+		display: flex;
+		flex-direction: row;
+	}
+
+	#hero p {
+		letter-spacing: 2em;
+		font-size: 1.4em;
+	}
+}

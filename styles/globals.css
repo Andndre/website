@@ -7,7 +7,8 @@
 }
 
 :root {
-	--nav-bar-height: 54px;
+	--nav-bar-height: 41px;
+	--nav-bar-height-mobile: 205px;
 	--primary-color: rgb(26, 119, 240);
 }
 
@@ -17,19 +18,9 @@ body {
 		Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
-a {
-	color: inherit;
-	text-decoration: none;
-	display: block;
-}
-
 .page-wrapper {
-	padding-top: var(--nav-bar-height);
-	min-height: calc(100vh - var(--nav-bar-height));
-}
-
-li {
-	list-style-type: none;
+	padding-top: var(--nav-bar-height-mobile);
+	min-height: calc(100vh - var(--nav-bar-height-mobile));
 }
 
 #nav-bar {
@@ -37,23 +28,37 @@ li {
 	box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
 	z-index: 2;
 	width: 100%;
+	height: var(--nav-bar-height);
 	background: white;
 }
 
 .nav-item-left {
 	gap: 45px;
 	align-items: center;
+	flex-direction: row;
+}
+
+.nav-items.desktop {
+	display: none;
+}
+
+.nav-items.mobile {
 	display: flex;
+	flex-direction: column;
+	background: white;
+	box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px;
 }
 
 #nav-bar .container {
 	display: flex;
 	justify-content: space-between;
+	height: var(--nav-bar-height);
+	align-items: center;
 }
 
-#nav-bar .item {
+/* #nav-bar .item {
 	display: none;
-}
+} */
 
 #nav-bar a {
 	padding: 10px 20px;
@@ -62,18 +67,11 @@ li {
 
 #nav-bar a.active {
 	background: rgb(230, 230, 230);
-	border-radius: 0.4rem;
 }
 
 #nav-bar .logo-circle {
 	height: 30px;
 	border-radius: 3rem;
-}
-
-@media screen and (min-width: 800px) {
-	#nav-bar .item {
-		display: block;
-	}
 }
 
 .container {
@@ -95,27 +93,6 @@ li {
 	color: white;
 }
 
-#hero {
-	background: linear-gradient(
-		45deg,
-		rgb(219, 219, 219),
-		rgb(245, 245, 245),
-		rgb(250, 250, 250)
-	);
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-}
-
-h1 {
-	font-size: 3rem;
-	font-weight: 900;
-}
-
-section {
-	min-height: 500px;
-}
-
 #nprogress .bar {
 	margin-top: var(--nav-bar-height);
 	background: linear-gradient(
@@ -127,11 +104,47 @@ section {
 }
 
 /* @media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
+		html {
+			color-scheme: dark;
+		}
+		body {
+			color: white;
+			background: black;
+		}
 } */
+
+li {
+	list-style-type: none;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+	display: block;
+}
+
+a.image-container {
+	padding: 0px;
+}
+
+section {
+	padding: 3em 0;
+	min-height: 500px;
+}
+
+section h2 {
+	margin-bottom: 0.8em;
+}
+
+h1 {
+	font-size: 3em;
+	font-weight: 900;
+}
+p {
+	font-size: 0.9em;
+}
+
+span {
+	color: var(--primary-color);
+	font-weight: bold;
+}
