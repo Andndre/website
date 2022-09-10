@@ -70,31 +70,8 @@ export default function Home() {
 					<h1>
 						Hello, world! My name is Andre
 						<br />
-						{hero}
+						<span>{hero}</span>
 					</h1>
-					<div className="secondary-hero">
-						<span>W</span>
-						<span>E</span>
-						<span>L</span>
-						<span>C</span>
-						<span>O</span>
-						<span>M</span>
-						<span>E</span>
-						<span> </span>
-						<span>T</span>
-						<span>O</span>
-						<span> </span>
-						<span>M</span>
-						<span>Y</span>
-						<span> </span>
-						<span>W</span>
-						<span>E</span>
-						<span>B</span>
-						<span>S</span>
-						<span>I</span>
-						<span>T</span>
-						<span>E</span>
-					</div>
 				</Section>
 				<Section id={'about-me'}>
 					<div className="section-flex-reverse">
@@ -102,7 +79,7 @@ export default function Home() {
 							<h2>About Me</h2>
 							<p>
 								My name is <span>Agung Andre</span>, most commonly known as{' '}
-								<span>André</span>. I am a student who has a passion for
+								<span>Andre</span>. I am a student who has a passion for
 								programming and design. The programming field that interests me
 								is the development of <span>web apps</span>,{' '}
 								<span>android</span>, and <span>games</span> (which I studied
@@ -117,7 +94,9 @@ export default function Home() {
 								Education majoring in Informatics Engineering.
 							</p>
 						</div>
-						<img src="" alt="" />
+						<div className="left">
+							<img src="/me.jpg" alt="Andre" />
+						</div>
 					</div>
 				</Section>
 			</PageWrapper>

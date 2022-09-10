@@ -9,8 +9,15 @@
 	p {
 		font-size: 1.2em;
 	}
-	#hero p {
-		letter-spacing: 1.5em;
-		font-size: 1.35em;
+
+	.section-flex-reverse {
+		display: flex;
+		flex-direction: row-reverse;
+		gap: 1.5em;
+	}
+
+	.section-flex-reverse .left,
+	.section-flex-reverse .right {
+		flex: 1;
 	}
 }

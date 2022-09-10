@@ -10,11 +10,6 @@
 		font-size: 1.2em;
 	}
 
-	.section-flex-reverse {
-		display: flex;
-		flex-direction: row-reverse;
-	}
-
 	.page-wrapper {
 		padding-top: 41px;
 	}
@@ -37,10 +32,5 @@
 		align-items: center;
 		display: flex;
 		flex-direction: row;
-	}
-
-	#hero p {
-		letter-spacing: 2em;
-		font-size: 1.4em;
 	}
 }

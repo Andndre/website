@@ -9,14 +9,33 @@
 	justify-content: center;
 }
 
-#hero span {
-	margin-top: 1.2em;
-	font-family: monospace;
-	font-size: 1.2em;
-	color: gray;
+#hero h1 span {
+	font-size: 0.5em;
+	color: var(--white-color);
+	font-weight: normal;
+	background: var(--primary-color);
+	/* border-radius: 0.3rem; */
 }
 
-.secondary-hero {
-	display: flex;
-	justify-content: space-between;
+@media (min-width: 1024px) {
+	#hero p {
+		letter-spacing: 2em;
+		font-size: 1.4em;
+	}
+	#nav-bar .item {
+		display: block;
+	}
+}
+
+@media (min-width: 768px) {
+	#hero p {
+		letter-spacing: 1.5em;
+		font-size: 1.35em;
+	}
+}
+
+@media (prefers-color-scheme: dark) {
+	#hero {
+		background: radial-gradient(circle, rgb(26, 26, 26) 0%, rgb(0, 0, 0) 100%);
+	}
 }
