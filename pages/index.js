@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import NavBar from '../components/NavBar';
 import PageWrapper from '../components/PageWrapper';
@@ -95,7 +96,7 @@ export default function Home() {
 							</p>
 						</div>
 						<div className="left">
-							<img src="/me.jpg" alt="Andre" />
+							<Image src="/me.jpg" alt="Andre" width={1936} height={2592} />
 						</div>
 					</div>
 				</Section>
