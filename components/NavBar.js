@@ -51,23 +51,23 @@ export default function NavBar({ pathname }) {
 							<path
 								d="M2.94971 2.94971H31"
 								stroke="black"
-								stroke-width="4"
-								stroke-linecap="round"
-								stroke-linejoin="round"
+								strokeWidth="4"
+								strokeLinecap="round"
+								strokeLinejoin="round"
 							/>
 							<path
 								d="M2.94971 13.4686H31"
 								stroke="black"
-								stroke-width="4"
-								stroke-linecap="round"
-								stroke-linejoin="round"
+								strokeWidth="4"
+								strokeLinecap="round"
+								strokeLinejoin="round"
 							/>
 							<path
 								d="M2.94971 23.9874H31"
 								stroke="black"
-								stroke-width="4"
-								stroke-linecap="round"
-								stroke-linejoin="round"
+								strokeWidth="4"
+								strokeLinecap="round"
+								strokeLinejoin="round"
 							/>
 						</svg>
 					</div>
