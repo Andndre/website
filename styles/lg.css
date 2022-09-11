@@ -10,6 +10,10 @@
 		font-size: 1.2em;
 	}
 
+	.mobile {
+		display: none;
+	}
+
 	.page-wrapper {
 		padding-top: 41px;
 	}
@@ -19,6 +23,10 @@
 	}
 
 	.nav-items.mobile {
+		display: none;
+	}
+
+	.nav-items.mobile.open {
 		display: none;
 	}
 

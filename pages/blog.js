@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import NavBar from '../components/NavBar';
 import PageWrapper from '../components/PageWrapper';
+import Section from '../components/Section';
 
 export default function Home() {
 	return (
@@ -12,7 +13,7 @@ export default function Home() {
 			</Head>
 			<NavBar pathname="/blog"></NavBar>
 			<PageWrapper>
-				<h1 className="center">Blog page coming soon</h1>
+				<Section>Hi</Section>
 			</PageWrapper>
 		</>
 	);

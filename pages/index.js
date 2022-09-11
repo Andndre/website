@@ -14,7 +14,7 @@ export default function Home() {
 	];
 	const [hero, setHero] = useState(heros[0]);
 	useEffect(() => {
-		const delayPeriod = 15;
+		const delayPeriod = 8;
 		let currentIndex = 0;
 		let current = heros[currentIndex];
 		let currentCharIndex = heros[currentIndex].length - 1;
@@ -52,7 +52,7 @@ export default function Home() {
 			current += currentChar;
 			setHero(current);
 			currentCharIndex++;
-		}, 50);
+		}, 100);
 
 		return () => {
 			clearInterval(interval);
@@ -72,6 +72,19 @@ export default function Home() {
 						Hello, world! My name is Andre
 						<br />
 						<span>{hero}</span>
+						<svg
+							className="down-arrow"
+							width="67"
+							height="39"
+							viewBox="0 0 67 39"
+							fill="none"
+							xmlns="http://www.w3.org/2000/svg"
+						>
+							<path
+								d="M2.07777 2.13423C3.00369 1.20859 4.25934 0.688599 5.56859 0.688599C6.87783 0.688599 8.13348 1.20859 9.0594 2.13423L33.5 26.5749L57.9407 2.13423C58.8719 1.23483 60.1191 0.737153 61.4137 0.748402C62.7083 0.759652 63.9467 1.27893 64.8621 2.19438C65.7776 3.10983 66.2969 4.34822 66.3081 5.64281C66.3194 6.93741 65.8217 8.18463 64.9223 9.11586L36.9908 37.0473C36.0649 37.9729 34.8093 38.4929 33.5 38.4929C32.1908 38.4929 30.9351 37.9729 30.0092 37.0473L2.07777 9.11586C1.15214 8.18994 0.632141 6.93429 0.632141 5.62504C0.632141 4.3158 1.15214 3.06015 2.07777 2.13423V2.13423Z"
+								fill="black"
+							/>
+						</svg>
 					</h1>
 				</Section>
 				<Section id={'about-me'}>
