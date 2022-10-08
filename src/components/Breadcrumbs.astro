@@ -1,9 +1,10 @@
 ---
+import Container from "./Container.astro";
 const url = Astro.url.pathname;
 ---
 
 <section>
-	{url}
+	<Container lessMargin>{url}</Container>
 </section>
 <style>
 	section {
