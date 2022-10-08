@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import backgroundImage from '../images/background.png';
 import downArrow from '../images/down arrow.svg';
+import aboutImage from '../images/about.png';
 import tiltedRect from '../images/tilted rect.svg';
 import BlueRedBackground from '../components/BlueRedBackground.astro';
 import Container from '../components/Container.astro';
@@ -21,23 +22,74 @@ import Container from '../components/Container.astro';
 			</div>
 		</section>
 		<img id="tilted-rect" src={tiltedRect} alt="" />
-		<section id="about-me">
-			<Container>
-				<h2>About Me</h2>
-				<p>
-					My name is Agung Andre, most commonly known as Andre. I am a student
-					who has a passion for programming and design. The programming field
-					that interests me is the development of web apps, android, and games
-					(which I studied are web based games). At the age of 16, when the
-					pandemic hit and the students were learning from home, I began to
-					learn many things self-taught, such as 2d and 3d animation, learning
-					several programming languages such as python, javascript (and
-					typescript), java, dart, and c. After I graduated from high school, I
-					continued my studies at the Ganesha University of Education majoring
-					in Informatics Engineering.
-				</p>
-			</Container>
-		</section>
+		<main>
+			<section id="about-me">
+				<Container lessMargin>
+					<h2>About Me</h2>
+					<div class="flex">
+						<img src={aboutImage} alt="it is me" />
+						<p>
+							My name is Agung Andre, most commonly known as Andre. I am a
+							student who has a passion for programming and design. The
+							programming field that interests me is the development of web
+							apps, android, and games (which I studied are web based games). At
+							the age of 16, when the pandemic hit and the students were
+							learning from home, I began to learn many things self-taught, such
+							as 2d and 3d animation, learning several programming languages
+							such as python, javascript (and typescript), java, dart, and c.
+							After I graduated from high school, I continued my studies at the
+							Ganesha University of Education majoring in Informatics
+							Engineering.
+						</p>
+					</div>
+				</Container>
+			</section>
+			<section id="blog">
+				<Container lessMargin>
+					<h2>Blog</h2>
+					<br /><br />
+					<div class="flex">
+						<p>
+							<!-- TODO: fix this without invisible span -->
+							<span class="invisible"
+								>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Atque
+								cupiditate</span
+							>
+							<br />
+							*Blog* is where I share my thoughts on something, and share the knowledge
+							that I have. <span class="invisible">
+								Lorem ipsum dolor, sit amet consectetur adipisicing elit. Atque
+								cupiditate</span
+							>
+						</p>
+						<div class="card">
+							<a class="btn" href="/blog">See my blogs</a>
+						</div>
+					</div>
+				</Container>
+			</section>
+			<section id="project">
+				<Container lessMargin>
+					<h2>Project</h2>
+					<br />
+					<div class="flex">
+						<div>
+							<p>
+								*Project* Lorem ipsum dolor sit amet consectetur adipisicing
+								elit. Ipsa sint provident unde maxime ab necessitatibus, ea
+								voluptate fugiat nisi voluptas iusto molestias aspernatur
+								accusantium deserunt quod. Cum quod delectus reiciendis.
+							</p>
+							<br />
+							<div class="align-right">
+								<a class="btn" href="/project">See my projects</a>
+							</div>
+						</div>
+						<img src={aboutImage} alt="my projects" />
+					</div>
+				</Container>
+			</section>
+		</main>
 	</BlueRedBackground>
 </Layout>
 
@@ -47,11 +99,33 @@ import Container from '../components/Container.astro';
 		width: 100%;
 		z-index: -10;
 	}
-
+	.flex {
+		display: flex;
+		gap: 3rem;
+		align-items: center;
+	}
+	.invisible {
+		opacity: 0;
+		pointer-events: none;
+	}
+	.align-right {
+		display: flex;
+		justify-content: end;
+	}
+	.flex > * {
+		flex: 1;
+	}
+	.flex img {
+		width: 100px;
+	}
 	h1 span {
 		color: var(--primary);
 	}
-
+	main {
+		position: relative;
+		z-index: 0;
+		margin-top: -10rem;
+	}
 	#tilted-rect {
 		width: 100%;
 	}
@@ -61,11 +135,24 @@ import Container from '../components/Container.astro';
 		border: 0;
 	}
 
-	#about-me {
-		position: relative;
-		z-index: 0;
-		margin-top: -10rem;
-		border: 0;
+	.card {
+		width: 100%;
+		background: var(--not-so-black);
+		text-align: center;
+		padding: 2rem 1rem;
+		border: 1px solid var(--lighter-black);
+		border-radius: 1rem;
+	}
+
+	section:not(#hero) {
+		min-height: 80vh;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	h2 {
+		line-height: 5rem;
 	}
 
 	.down-arrow {
@@ -80,14 +167,21 @@ import Container from '../components/Container.astro';
 		.background-image {
 			display: none;
 		}
-		#about-me {
+		main {
 			margin-top: -4rem;
 		}
 	}
 
 	@media screen and (max-width: 720px) {
-		#about-me {
+		main {
 			margin-top: -2rem;
+		}
+		.flex {
+			flex-direction: column;
+		}
+		.flex > *,
+		.flex img {
+			width: 100%;
 		}
 	}
 </style>
