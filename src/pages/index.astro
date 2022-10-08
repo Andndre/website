@@ -24,7 +24,7 @@ import Container from '../components/Container.astro';
 		<img id="tilted-rect" src={tiltedRect} alt="" />
 		<main>
 			<section id="about-me">
-				<Container lessMargin>
+				<Container lessMargin className="hidden">
 					<h2>About Me</h2>
 					<div class="flex">
 						<img src={aboutImage} alt="it is me" />
@@ -45,7 +45,7 @@ import Container from '../components/Container.astro';
 				</Container>
 			</section>
 			<section id="blog">
-				<Container lessMargin>
+				<Container lessMargin className="hidden">
 					<h2>Blog</h2>
 					<br /><br />
 					<div class="flex">
@@ -69,7 +69,7 @@ import Container from '../components/Container.astro';
 				</Container>
 			</section>
 			<section id="project">
-				<Container lessMargin>
+				<Container lessMargin className="hidden">
 					<h2>Project</h2>
 					<br />
 					<div class="flex">
@@ -94,6 +94,15 @@ import Container from '../components/Container.astro';
 </Layout>
 
 <style>
+	.hidden {
+		opacity: 0;
+		translate: 0 20px;
+		transition: all 1s ease-out;
+	}
+	.show {
+		opacity: 1;
+		translate: 0 0;
+	}
 	.background-image {
 		position: absolute;
 		width: 100%;
@@ -184,4 +193,28 @@ import Container from '../components/Container.astro';
 			width: 100%;
 		}
 	}
+
+	/* @media (prefers-reduced-motion) {
+		.hidden {
+			transition: none;
+		}
+	} */
 </style>
+
+<script>
+	const observer = new IntersectionObserver((entries) => {
+		entries.forEach((entry) => {
+			if (entry.isIntersecting) {
+				entry.target.classList.add('show');
+			} else {
+				entry.target.classList.remove('show');
+			}
+		});
+	});
+
+	const hiddenElements = document.querySelectorAll('.hidden');
+
+	hiddenElements.forEach((element) => {
+		observer.observe(element);
+	});
+</script>

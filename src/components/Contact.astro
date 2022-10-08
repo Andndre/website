@@ -1,5 +1,44 @@
-<form id="form">
-	<input id="email" type="email" />
-	<textarea name="message" id="message" cols="30" rows="10"></textarea>
+<form
+	action="mailto:agungandre687@gmail.com"
+	method="post"
+	enctype="text/plain"
+	id="form"
+>
+	<label for="email">E-Mail</label>
+	<input required id="email" name="email" type="email" />
+	<label for="message">Message</label>
+	<textarea required name="message" id="message" cols="30" rows="10"></textarea>
 	<button type="submit">Send</button>
 </form>
+<style>
+	form {
+		background: var(--not-so-black);
+		border: 1px solid var(--lighter-black);
+		border-radius: 1rem;
+		padding: 1rem;
+		display: flex;
+		width: 100%;
+		flex-direction: column;
+		gap: 0.4rem;
+		max-width: 720px;
+	}
+	label {
+		font-weight: bold;
+	}
+	input,
+	textarea {
+		color: var(--not-so-white);
+		background: var(--not-so-black);
+		border: 1px solid var(--lighter-black);
+		padding: 0.2rem 0.4rem;
+		border-radius: 0.3rem;
+		resize: none;
+	}
+	button {
+		padding: 0.2rem 0.4rem;
+		background: var(--primary);
+		color: var(--not-so-white);
+		font-weight: bold;
+		border-radius: 0.3rem;
+	}
+</style>

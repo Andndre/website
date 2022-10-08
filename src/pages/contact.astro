@@ -2,10 +2,27 @@
 import Layout from '../layouts/Layout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import Contact from '../components/Contact.astro';
+import Container from '../components/Container.astro';
+import BlueRedBackground from '../components/BlueRedBackground.astro';
 ---
 
 <Layout title="Andndre - Contact">
-	<Breadcrumbs />
-	<h1>Contact me</h1>
-	<Contact />
+	<BlueRedBackground>
+		<Breadcrumbs />
+		<h1>Contact me</h1>
+		<br />
+		<br />
+		<Container>
+			<div class="center">
+				<Contact />
+			</div>
+		</Container>
+	</BlueRedBackground>
 </Layout>
+
+<style>
+	.center {
+		display: flex;
+		justify-content: center;
+	}
+</style>
