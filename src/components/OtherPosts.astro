@@ -1,0 +1,21 @@
+---
+export interface Props {
+	except: string;
+}
+
+const { except } = Astro.props as Props;
+
+const posts = await Astro.glob('../pages/blog/*.mdx');
+---
+
+<div class="other-posts">
+	<h3>Other posts</h3>
+	{
+		posts.map((post) => {
+			if (post.frontmatter.slug === except) return;
+			return (
+				<a href={`/blog/${post.frontmatter.slug}`}>{post.frontmatter.title}</a>
+			);
+		})
+	}
+</div>

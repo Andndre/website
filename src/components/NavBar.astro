@@ -1,0 +1,97 @@
+---
+import githubProfileImage from '../images/ico.jpg';
+import Container from './Container.astro';
+import Tooltip from './Tooltip.astro';
+
+const url = Astro.url.pathname;
+
+const links = [
+	{
+		text: 'Home',
+		url: '/',
+		tooltip: 'Home page',
+	},
+	{
+		text: 'Blog',
+		url: '/blog',
+		tooltip: 'See my blogs',
+	},
+	{
+		text: 'Project',
+		url: '/project',
+		tooltip: 'See my projects',
+	},
+	{
+		text: 'Contact',
+		url: '/contact',
+		tooltip: 'Get my contact',
+	},
+];
+---
+
+<nav>
+	<Container lessMargin className="navbar-container">
+		<Tooltip text="My github">
+			<a href="https://www.github.com/Andndre">
+				<img height="44px" src={githubProfileImage} alt="my github" />
+			</a>
+		</Tooltip>
+		<div class="links">
+			{
+				links.map((link) => {
+					if (link.url === url) {
+						return (
+							<Tooltip text={link.tooltip}>
+								<a class="active" href={link.url}>
+									{link.text}
+								</a>
+							</Tooltip>
+						);
+					}
+					return (
+						<Tooltip text={link.tooltip}>
+							<a href={link.url}>{link.text}</a>
+						</Tooltip>
+					);
+				})
+			}
+		</div>
+	</Container>
+</nav>
+
+<style>
+	nav {
+		position: fixed;
+		background: rgba(0, 0, 0, 0.767);
+		width: 100%;
+		z-index: 10;
+		backdrop-filter: blur(10px);
+	}
+	.navbar-container a {
+		/* fixed extra height added to the <a> */
+		display: flex;
+	}
+	.navbar-container {
+		padding-top: 0 !important;
+		padding-bottom: 0 !important;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	.links {
+		display: flex;
+		gap: 8px;
+	}
+	.links a {
+		padding: 0.7rem 1.4rem;
+		background: var(--not-so-black);
+		color: white;
+	}
+	a.active,
+	.links a:is(:hover, :focus-within) {
+		background: var(--lighter-black);
+	}
+	nav img {
+		border-radius: 10rem;
+	}
+</style>

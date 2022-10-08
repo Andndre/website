@@ -1,0 +1,60 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import BlueRedBackground from '../../components/BlueRedBackground.astro';
+import Container from '../../components/Container.astro';
+import Tooltip from '../../components/Tooltip.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+
+const blogs = await Astro.glob('./*.mdx');
+---
+
+<Layout title="Andndre - Blog">
+	<Breadcrumbs />
+	<BlueRedBackground>
+		<h1>Welcome to Blogs</h1>
+		<Container lessMargin>
+			<p>This is my blog page</p>
+		</Container>
+	</BlueRedBackground>
+	<section id="blog-list">
+		<Container className="blog-list-container">
+			{
+				blogs.map((blog) => {
+					return (
+						<div class="blog-card">
+							<h3>{blog.frontmatter.title}</h3>
+							<p>{blog.frontmatter.summary}</p>
+							<div class="read-more">
+								<Tooltip text="Read more about this blog">
+									<a href={`/blog/${blog.frontmatter.slug}`} class="btn">
+										Read more
+									</a>
+								</Tooltip>
+							</div>
+						</div>
+					);
+				})
+			}
+		</Container>
+	</section>
+</Layout>
+
+<style>
+	.blog-card {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+	.read-more {
+		margin-left: auto;
+	}
+	.btn {
+		max-width: 8rem;
+		text-align: center;
+	}
+	.blog-list-container {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+</style>

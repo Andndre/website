@@ -1,0 +1,43 @@
+---
+import Layout from './Layout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import BlueRedBackground from '../components/BlueRedBackground.astro';
+import Container from '../components/Container.astro';
+import OtherPosts from '../components/OtherPosts.astro';
+
+const { frontmatter } = Astro.props;
+---
+
+<Layout title={frontmatter.title}>
+	<Breadcrumbs />
+	<BlueRedBackground>
+		<h1>{frontmatter.title}</h1>
+		<br />
+		<Container lessMargin className="blog-info">
+			<p>{frontmatter.author}</p> -
+			<p>{frontmatter.date}</p>
+		</Container>
+	</BlueRedBackground>
+	<br /><br />
+	<Container lessMargin className="main-content">
+		<Container>
+			<slot />
+		</Container>
+		<OtherPosts except={frontmatter.slug} />
+	</Container>
+</Layout>
+<style>
+	.blog-info {
+		display: flex;
+		gap: 8px;
+	}
+	.main-content {
+		padding: 0 1rem;
+		display: flex;
+	}
+	@media screen and (max-width: 1080px) {
+		.main-content {
+			flex-direction: column;
+		}
+	}
+</style>
