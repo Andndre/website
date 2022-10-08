@@ -94,4 +94,19 @@ const links = [
 	nav img {
 		border-radius: 10rem;
 	}
+
+	@media screen and (max-width: 720px) {
+		nav img {
+			display: none;
+		}
+		.links a {
+			padding: 0.7rem 0;
+			background: none;
+			text-decoration: underline;
+		}
+		a.active,
+		.links a:is(:hover, :focus-within) {
+			background: none;
+		}
+	}
 </style>
