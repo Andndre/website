@@ -6,24 +6,24 @@ export interface Props {
 const { text } = Astro.props as Props;
 ---
 
-<div class="tooltip"><slot /><span>{text}</span></div>
+<div data-tooltip={text}><slot /></div>
 
 <style>
-	span {
+	[data-tooltip]:before {
+		margin-top: 2rem;
 		position: absolute;
-		margin-top: 0.5rem;
-		transition: opacity 500ms cubic-bezier(0.165, 0.84, 0.44, 1);
-		transition-delay: 1000ms;
-		opacity: 0;
+		content: attr(data-tooltip);
 		padding: 0.4rem 0.8rem;
+		border-radius: 0.2rem;
+		opacity: 0;
+		border: 1px solid var(--lighter-black);
+		transition: opacity 500ms cubic-bezier(0.165, 0.84, 0.44, 1);
+		transition-delay: 200ms;
 		background: var(--not-so-black);
 		color: var(--not-so-white);
-		border-radius: 0.2rem;
 		pointer-events: none;
-		border: 1px solid var(--lighter-black);
-		margin-left: -60px;
 	}
-	.tooltip:hover span {
+	[data-tooltip]:hover:before {
 		opacity: 1;
 	}
 </style>

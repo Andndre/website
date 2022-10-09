@@ -26,7 +26,11 @@ const blogs = await Astro.glob('./*.mdx');
 							<p>{blog.frontmatter.summary}</p>
 							<div class="read-more">
 								<Tooltip text="Read more about this blog">
-									<a href={`/blog/${blog.frontmatter.slug}`} class="btn">
+									<a
+										title="read more"
+										href={`/blog/${blog.frontmatter.slug}`}
+										class="btn"
+									>
 										Read more
 									</a>
 								</Tooltip>
@@ -56,11 +60,5 @@ const blogs = await Astro.glob('./*.mdx');
 		display: flex;
 		flex-direction: column;
 		gap: 1.2rem;
-	}
-	@media screen and (max-width: 720px) {
-		.description {
-			display: flex;
-			justify-content: center;
-		}
 	}
 </style>
