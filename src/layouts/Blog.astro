@@ -8,7 +8,7 @@ import OtherPosts from '../components/OtherPosts.astro';
 const { frontmatter } = Astro.props;
 ---
 
-<Layout title={frontmatter.title}>
+<Layout title={frontmatter.title} desc={frontmatter.summary}>
 	<Breadcrumbs />
 	<BlueRedBackground>
 		<h1>{frontmatter.title}</h1>
