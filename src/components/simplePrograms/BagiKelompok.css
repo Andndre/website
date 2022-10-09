@@ -1,0 +1,40 @@
+.action {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: flex-start;
+	gap: 1rem;
+}
+
+.action label {
+	text-align: left;
+}
+
+.action button {
+	border: 0;
+	padding: 0.2rem 0.4rem;
+	background: var(--primary);
+	color: var(--not-so-white);
+	border-radius: 0.2rem;
+}
+
+.left {
+	display: flex;
+	align-items: flex-start;
+	flex-direction: column;
+}
+
+.right {
+	width: 100px;
+	display: flex;
+	align-items: flex-start;
+	gap: 0.5rem;
+	flex-direction: column;
+}
+
+/* @media screen and (max-width: 720px) {
+	.action {
+		flex-direction: column;
+	}
+} */

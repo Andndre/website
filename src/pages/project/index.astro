@@ -1,0 +1,156 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import BlueRedBackground from '../../components/BlueRedBackground.astro';
+import Container from '../../components/Container.astro';
+import github from '../../images/github.png';
+
+const programs = [
+	{
+		name: 'Pembagian Kelompok Random',
+		description: 'Bagi kelompok secara acak/random',
+		link: '/project/bagi-kelompok',
+	},
+	{
+		name: 'Hitung Nilai Tugas Akhir',
+		description: 'Hitung nilai tugas akhir dengan bobot',
+		link: '/project/hitung-nilai-tugas-akhir',
+	},
+];
+---
+
+<Layout title="Andndre - Project">
+	<Breadcrumbs />
+	<BlueRedBackground>
+		<h1>My projects</h1>
+		<br />
+		<Container lessMargin className="description">
+			<p>Welcome to projects</p>
+		</Container>
+	</BlueRedBackground>
+	<section id="project-list">
+		<Container>
+			<h2>Projects</h2>
+			<br />
+			<div class="flex">
+				<div>
+					<p>Most of my projects are hosted on github</p>
+				</div>
+				<div class="card">
+					<a class="btn" href="https://www.github.com/Andndre"
+						><img src={github} alt="github" /> Andndre</a
+					>
+				</div>
+			</div>
+		</Container>
+	</section>
+	<section id="utilities">
+		<Container>
+			<h2>Simple Programs</h2>
+			<br />
+			<div class="horizontal-list-w-controll">
+				<button id="left-arrow" class="arrow">&leftarrow;</button>
+				<div id="programs-list" class="horizontal-list">
+					{
+						programs.map((program) => {
+							return (
+								<div class="card-rapper">
+									<div class="program-card">
+										<h3>{program.name}</h3>
+										<p>{program.description}</p>
+										<a class="btn" href={program.link}>
+											Run
+										</a>
+									</div>
+								</div>
+							);
+						})
+					}
+				</div>
+				<button id="right-arrow" class="arrow">&rightarrow;</button>
+			</div>
+		</Container>
+	</section>
+</Layout>
+
+<script>
+	const leftArrow = document.getElementById('left-arrow');
+	const rightArrow = document.getElementById('right-arrow');
+	const list = document.getElementById('programs-list');
+	console.log('scroll left');
+	leftArrow.addEventListener('click', () => {
+		list.scrollLeft -= 520;
+	});
+	rightArrow.addEventListener('click', () => {
+		list.scrollLeft += 520;
+	});
+</script>
+
+<style>
+	.btn {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 1rem;
+	}
+	.btn img {
+		height: 20px;
+		width: 20px;
+	}
+	.arrow {
+		display: flex;
+		align-items: center;
+		padding: 0 1rem;
+		background: var(--not-so-black);
+		color: var(--not-so-white);
+		border: 1px solid var(--lighter-black);
+	}
+	.arrow:hover {
+		background: var(--lighter-black);
+	}
+	.horizontal-list-w-controll {
+		display: flex;
+		width: 100%;
+	}
+	.horizontal-list {
+		overflow-x: scroll;
+		display: flex;
+		scroll-behavior: smooth;
+		flex-wrap: nowrap;
+		align-items: center;
+		gap: 1rem;
+		-webkit-overflow-scrolling: touch;
+	}
+	.horizontal-list::-webkit-scrollbar {
+		display: none;
+	}
+	.card-wrapper {
+		flex: 0 0 auto;
+		/* display: inline-block; */
+	}
+	.program-card {
+		padding: 1rem 2rem;
+		border: 1px solid var(--lighter-black);
+		/* border-radius: 1rem; */
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 1rem;
+		text-align: center;
+		min-width: 400px;
+		max-width: 520px;
+	}
+	@media screen and (max-width: 720px) {
+		.description {
+			display: flex;
+			justify-content: center;
+		}
+		.arrow {
+			display: none;
+		}
+		.horizontal-list-w-controll,
+		.horizontal-list {
+			display: block;
+		}
+	}
+</style>

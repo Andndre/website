@@ -126,11 +126,7 @@ import Contact from '../components/Contact.astro';
 		width: 100%;
 		z-index: -10;
 	}
-	.flex {
-		display: flex;
-		gap: 3rem;
-		align-items: center;
-	}
+
 	.invisible {
 		opacity: 0;
 		pointer-events: none;
@@ -138,12 +134,6 @@ import Contact from '../components/Contact.astro';
 	.align-right {
 		display: flex;
 		justify-content: end;
-	}
-	.flex > * {
-		flex: 1;
-	}
-	.flex img {
-		width: 100px;
 	}
 	h1 span {
 		color: var(--primary);
@@ -160,15 +150,6 @@ import Contact from '../components/Contact.astro';
 	#hero {
 		background-color: inherit;
 		border: 0;
-	}
-
-	.card {
-		width: 100%;
-		background: var(--not-so-black);
-		text-align: center;
-		padding: 2rem 1rem;
-		border: 1px solid var(--lighter-black);
-		border-radius: 1rem;
 	}
 
 	section:not(#hero) {
@@ -202,13 +183,6 @@ import Contact from '../components/Contact.astro';
 	@media screen and (max-width: 720px) {
 		main {
 			margin-top: -2rem;
-		}
-		.flex {
-			flex-direction: column;
-		}
-		.flex > *,
-		.flex img {
-			width: 100%;
 		}
 	}
 

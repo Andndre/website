@@ -1,0 +1,10 @@
+---
+const urls = new Map();
+
+// TODO: make this in a database
+urls.set('instagram', 'https://www.instagram.com/g.ndre');
+urls.set('github', 'https://www.github.com/Andndre');
+urls.set('facebook', 'https://web.facebook.com/agung.andre.75054');
+
+return Astro.redirect(urls.get(Astro.params.name));
+---
