@@ -4,6 +4,12 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 import Contact from '../components/Contact.astro';
 import Container from '../components/Container.astro';
 import BlueRedBackground from '../components/BlueRedBackground.astro';
+
+const maintenance = import.meta.env.MAINTENANCE;
+
+if (maintenance) {
+	return Astro.redirect('/maintenance');
+}
 ---
 
 <Layout title="Andndre - Contact" desc="This is Agung Andre's contacts">

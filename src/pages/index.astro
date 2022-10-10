@@ -7,6 +7,11 @@ import tiltedRect from '../images/tilted rect.svg';
 import BlueRedBackground from '../components/BlueRedBackground.astro';
 import Container from '../components/Container.astro';
 import Contact from '../components/Contact.astro';
+
+const maintenance = import.meta.env.MAINTENANCE;
+if (maintenance) {
+	return Astro.redirect('/maintenance');
+}
 ---
 
 <Layout

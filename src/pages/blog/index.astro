@@ -6,6 +6,12 @@ import Tooltip from '../../components/Tooltip.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import { filterBlogsThatUnPublished } from '../../util/blogs';
 
+const maintenance = import.meta.env.MAINTENANCE;
+
+if (maintenance) {
+	return Astro.redirect('/maintenance');
+}
+
 const allBlogsInServer = await Astro.glob('./*.mdx');
 const blogs = await filterBlogsThatUnPublished(allBlogsInServer);
 ---

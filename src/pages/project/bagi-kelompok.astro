@@ -3,6 +3,12 @@ import BagiKelompok from '../../components/simplePrograms/BagiKelompok';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import Layout from '../../layouts/Layout.astro';
 import Container from '../../components/Container.astro';
+
+const maintenance = import.meta.env.MAINTENANCE;
+
+if (maintenance) {
+	return Astro.redirect('/maintenance');
+}
 ---
 
 <Layout
