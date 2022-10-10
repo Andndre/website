@@ -1,0 +1,9 @@
+---
+import { getLink } from '../../util/db';
+
+const url = await getLink(Astro.params.name as string);
+
+if (url === null) return Astro.redirect('/404');
+
+return Astro.redirect(url);
+---

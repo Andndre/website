@@ -24,3 +24,8 @@ export async function getBlogFromSlug(slug: string) {
 		await supabase.from<Blog>('blog').select('*').eq('slug', slug).single()
 	).data;
 }
+
+export async function getLink(name: string) {
+	return (await supabase.from('link').select('url').eq('slug', name).single())
+		.data.url;
+}
