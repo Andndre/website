@@ -5,7 +5,7 @@ import Container from '../../components/Container.astro';
 
 const maintenance = import.meta.env.MAINTENANCE;
 
-if (maintenance) {
+if (maintenance === '1') {
 	return Astro.redirect('/maintenance');
 }
 ---
