@@ -1,4 +1,6 @@
 ---
+import { filterBlogsThatUnPublished } from '../util/blogs';
+
 export interface Props {
 	except: string;
 }
@@ -6,12 +8,14 @@ export interface Props {
 const { except } = Astro.props as Props;
 
 const posts = await Astro.glob('../pages/blog/*.mdx');
+
+const publishedPosts = await filterBlogsThatUnPublished(posts);
 ---
 
 <div class="other-posts">
 	<h3>Other posts</h3>
 	{
-		posts.map((post) => {
+		publishedPosts.map((post) => {
 			if (post.frontmatter.slug === except) return;
 			return (
 				<a href={`/blog/${post.frontmatter.slug}`}>{post.frontmatter.title}</a>
