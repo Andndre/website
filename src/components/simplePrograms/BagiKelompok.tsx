@@ -2,7 +2,7 @@ import './BagiKelompok.css';
 import { useRef, useState } from 'react';
 
 //? https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
-function shuffle(array) {
+function shuffle(array: string[]) {
 	let currentIndex = array.length,
 		randomIndex;
 
@@ -79,7 +79,7 @@ export default function App() {
 				</div>
 			</form>
 			{kelompok &&
-				kelompok.map((kel, i) => {
+				kelompok.map((kel: string[], i: number) => {
 					return (
 						<div>
 							<h3>Kelompok {i + 1}</h3>

@@ -4,8 +4,10 @@ import BlueRedBackground from '../../components/BlueRedBackground.astro';
 import Container from '../../components/Container.astro';
 import Tooltip from '../../components/Tooltip.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { filterBlogsThatUnPublished } from '../../util/blogs';
 
-const blogs = await Astro.glob('./*.mdx');
+const allBlogsInServer = await Astro.glob('./*.mdx');
+const blogs = await filterBlogsThatUnPublished(allBlogsInServer);
 ---
 
 <Layout title="Andndre - Blog" desc="Agung Andre's blogs page">
@@ -23,14 +25,19 @@ const blogs = await Astro.glob('./*.mdx');
 					return (
 						<div class="blog-card">
 							<h3>{blog.frontmatter.title}</h3>
-							<p>{blog.frontmatter.summary}</p>
+							<div class="info">
+								<p>
+									Published at
+									{new Date(
+										Date.parse(blog.frontmatter.created_at)
+									).toLocaleDateString('id')}
+								</p>
+								<p>By Agung Andre</p>
+							</div>
+							<p>{blog.frontmatter.preview}</p>
 							<div class="read-more">
 								<Tooltip text="Read more about this blog">
-									<a
-										title="read more"
-										href={`/blog/${blog.frontmatter.slug}`}
-										class="btn"
-									>
+									<a title="read more" href={blog.url} class="btn">
 										Read more
 									</a>
 								</Tooltip>
@@ -44,6 +51,13 @@ const blogs = await Astro.glob('./*.mdx');
 </Layout>
 
 <style>
+	.info {
+		display: flex;
+		justify-content: space-between;
+	}
+	.info p {
+		text-align: left;
+	}
 	.blog-card {
 		display: flex;
 		flex-direction: column;

@@ -4,18 +4,31 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 import BlueRedBackground from '../components/BlueRedBackground.astro';
 import Container from '../components/Container.astro';
 import OtherPosts from '../components/OtherPosts.astro';
+import BlogComments from '../components/BlogComments';
 
-const { frontmatter } = Astro.props;
+interface Props {
+	frontmatter: {
+		title: string;
+		slug: string;
+		author: string;
+		created_at: string;
+		preview: string;
+	};
+}
+
+let { frontmatter } = Astro.props as Props;
 ---
 
-<Layout title={frontmatter.title} desc={frontmatter.summary}>
+<Layout title={frontmatter.title} desc={frontmatter.preview}>
 	<Breadcrumbs />
 	<BlueRedBackground>
 		<h1>{frontmatter.title}</h1>
 		<br />
 		<Container lessMargin className="description">
-			<p>{frontmatter.author}</p> -
-			<p>{frontmatter.date}</p>
+			<p>
+				Agung Andre -
+				{new Date(Date.parse(frontmatter.created_at)).toLocaleDateString('id')}
+			</p>
 		</Container>
 	</BlueRedBackground>
 	<br /><br />
@@ -25,6 +38,11 @@ const { frontmatter } = Astro.props;
 		</Container>
 		<OtherPosts except={frontmatter.slug} />
 	</Container>
+	<section id="comment">
+		<Container>
+			<BlogComments slug={frontmatter.slug} />
+		</Container>
+	</section>
 </Layout>
 <style>
 	.blog-info {
