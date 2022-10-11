@@ -2,6 +2,7 @@
 import githubProfileImage from '../images/ico.jpg';
 import Container from './Container.astro';
 import Tooltip from './Tooltip.astro';
+import hamburger from '../images/hamburger.svg';
 
 const url = Astro.url.pathname;
 
@@ -30,36 +31,54 @@ const links = [
 ---
 
 <nav>
-	<Container lessMargin className="navbar-container">
+	<Container lessMargin className="navbar">
 		<Tooltip text="My github">
 			<a href="https://www.github.com/Andndre">
 				<img height="44px" src={githubProfileImage} alt="my github" />
 			</a>
 		</Tooltip>
-		<div class="links">
-			{
-				links.map((link) => {
-					if (link.url === url) {
+		<input type="checkbox" id="toggler" />
+		<label id="hamburger" for="toggler"
+			><img src={hamburger} alt="hamburger" />
+		</label>
+		<div class="menu">
+			<ul class="list">
+				{
+					links.map((link) => {
+						if (url === link.url) {
+							return (
+								<li>
+									<Tooltip text={link.tooltip}>
+										<a class="active" href={link.url}>
+											{link.text}
+										</a>
+									</Tooltip>
+								</li>
+							);
+						}
 						return (
-							<Tooltip text={link.tooltip}>
-								<a class="active" href={link.url}>
-									{link.text}
-								</a>
-							</Tooltip>
+							<li>
+								<Tooltip text={link.tooltip}>
+									<a href={link.url}>{link.text}</a>
+								</Tooltip>
+							</li>
 						);
-					}
-					return (
-						<Tooltip text={link.tooltip}>
-							<a href={link.url}>{link.text}</a>
-						</Tooltip>
-					);
-				})
-			}
+					})
+				}
+			</ul>
 		</div>
 	</Container>
 </nav>
 
 <style>
+	.navbar {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-between;
+		padding-top: 0 !important;
+		padding-bottom: 0 !important;
+	}
 	nav {
 		position: fixed;
 		background: rgba(0, 0, 0, 0.767);
@@ -67,10 +86,21 @@ const links = [
 		z-index: 10;
 		backdrop-filter: blur(10px);
 	}
-	.navbar-container a {
-		/* fixed extra height added to the <a> */
-		display: flex;
+	#hamburger img {
+		height: 30px;
+		border-radius: 0%;
 	}
+	.list {
+		list-style: none;
+		display: flex;
+		gap: 8px;
+	}
+
+	#toggler,
+	nav label {
+		display: none;
+	}
+
 	.navbar-container {
 		padding-top: 0 !important;
 		padding-bottom: 0 !important;
@@ -78,35 +108,48 @@ const links = [
 		justify-content: space-between;
 		align-items: center;
 	}
-	.links {
-		display: flex;
-		gap: 8px;
-	}
-	.links a {
-		padding: 0.8rem 1.6rem;
-		background: var(--not-so-black);
-		color: white;
-	}
-	a.active,
-	.links a:is(:hover, :focus-within) {
-		background: var(--lighter-black);
-	}
 	nav img {
 		border-radius: 10rem;
 	}
 
-	@media screen and (max-width: 720px) {
-		nav img {
-			display: none;
-		}
-		.links a {
-			padding: 0.7rem 0;
-			background: none;
-			text-decoration: underline;
+	@media screen and (min-width: 721px) {
+		.list a {
+			/* font-weight: bold; */
+			padding: 0.8rem 1.6rem;
+			background: var(--not-so-black);
+			color: white;
 		}
 		a.active,
-		.links a:is(:hover, :focus-within) {
-			background: none;
+		.list a:is(:hover, :focus-within) {
+			background: var(--lighter-black);
+		}
+	}
+
+	@media screen and (max-width: 720px) {
+		.menu {
+			width: 100%;
+			max-height: 0;
+			overflow: hidden;
+		}
+		a.active,
+		.list a:is(:hover, :focus-within) {
+			font-weight: bold;
+			color: white;
+		}
+		.list {
+			flex-direction: column;
+			width: 100%;
+			align-items: center;
+			gap: 30px;
+			padding: 20px;
+		}
+		nav label {
+			display: inline-flex;
+			align-items: center;
+			cursor: pointer;
+		}
+		#toggler:checked ~ .menu {
+			max-height: 100%;
 		}
 	}
 </style>
