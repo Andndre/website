@@ -1,6 +1,6 @@
 {
 	"cleanUrls": true,
-	"rewrites": [
+	"redirects": [
 		{
 			"source": "/:path*",
 			"has": [
@@ -16,10 +16,10 @@
 			"has": [
 				{
 					"type": "host",
-					"value": "contact.andndre.vercel.app"
+					"value": "link.andndre.vercel.app"
 				}
 			],
-			"destination": "https://andndre.vercel.app/contact/:path*"
+			"destination": "https://andndre.vercel.app/link/:path*"
 		},
 		{
 			"source": "/:path*",
@@ -36,10 +36,10 @@
 			"has": [
 				{
 					"type": "host",
-					"value": "link.andndre.vercel.app"
+					"value": "contact.andndre.vercel.app"
 				}
 			],
-			"destination": "https://andndre.vercel.app/link/:path*"
+			"destination": "https://andndre.vercel.app/contact/:path*"
 		}
 	]
 }
