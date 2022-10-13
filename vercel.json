@@ -1,3 +1,45 @@
 {
-	"cleanUrls": true
-  }
+	"cleanUrls": true,
+	"rewrites": [
+		{
+			"source": "/:path*",
+			"has": [
+				{
+					"type": "host",
+					"value": "blog.andndre.vercel.app"
+				}
+			],
+			"destination": "https://andndre.vercel.app/blog/:path*"
+		},
+		{
+			"source": "/:path*",
+			"has": [
+				{
+					"type": "host",
+					"value": "contact.andndre.vercel.app"
+				}
+			],
+			"destination": "https://andndre.vercel.app/contact/:path*"
+		},
+		{
+			"source": "/:path*",
+			"has": [
+				{
+					"type": "host",
+					"value": "project.andndre.vercel.app"
+				}
+			],
+			"destination": "https://andndre.vercel.app/project/:path*"
+		},
+		{
+			"source": "/:path*",
+			"has": [
+				{
+					"type": "host",
+					"value": "link.andndre.vercel.app"
+				}
+			],
+			"destination": "https://andndre.vercel.app/link/:path*"
+		}
+	]
+}
