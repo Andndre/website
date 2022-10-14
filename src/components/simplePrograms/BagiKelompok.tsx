@@ -23,9 +23,9 @@ function shuffle(array: string[]) {
 }
 
 export default function App() {
-	const form = useRef();
-	const textArea = useRef();
-	const jumlahKelompok = useRef();
+	const form = useRef<HTMLFormElement>();
+	const textArea = useRef<HTMLTextAreaElement>();
+	const jumlahKelompok = useRef<HTMLInputElement>();
 	const [kelompok, setKelompok] = useState([]);
 	const handleOnChange = (ev) => {
 		jumlahKelompok.current.max = ev.currentTarget.value.split('\n').length;
@@ -59,8 +59,8 @@ export default function App() {
 						onChange={handleOnChange}
 						required
 						ref={textArea}
-						cols="30"
-						rows="10"
+						cols={30}
+						rows={10}
 					></textarea>
 				</div>
 				<div className="right">

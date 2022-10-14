@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import Container from '../../components/Container.astro';
+import HitungNilaiTugasAkhir from '../../components/simplePrograms/HitungNilaiTugasAkhir';
 
 const maintenance = import.meta.env.MAINTENANCE;
 
@@ -19,6 +20,6 @@ if (maintenance === '1') {
 	<br />
 	<br />
 	<Container>
-		<h2>Coming soon</h2>
+		<HitungNilaiTugasAkhir client:load />
 	</Container>
 </Layout>

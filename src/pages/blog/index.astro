@@ -9,7 +9,7 @@ import { filterBlogsThatUnPublished } from '../../util/blogs';
 const maintenance = import.meta.env.MAINTENANCE;
 
 if (maintenance === '1') {
-	return Astro.redirect('/maintenance');
+	return Astro.redirect('https://andndre.vercel.app/maintenance');
 }
 
 const allBlogsInServer = await Astro.glob('./*.mdx');

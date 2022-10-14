@@ -26,7 +26,7 @@ const { title, desc } = Astro.props;
 		<slot />
 		<Footer />
 		<style is:global>
-			@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap');
+			/* @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap'); */
 
 			:root {
 				--background: #120f0f;
@@ -43,9 +43,10 @@ const { title, desc } = Astro.props;
 				box-sizing: border-box;
 			}
 			html {
-				font-family: 'Montserrat', sans-serif;
+				font-family: system-ui, sans-serif;
 				background-color: var(--background);
 				color: white;
+				scroll-behavior: smooth;
 			}
 			a {
 				text-decoration: none;
@@ -58,7 +59,7 @@ const { title, desc } = Astro.props;
 			}
 
 			.nav-margin {
-				padding-top: 48px;
+				padding-top: 56px;
 			}
 
 			.btn {
@@ -70,10 +71,10 @@ const { title, desc } = Astro.props;
 				z-index: -1;
 				text-align: center;
 				position: relative;
-				line-height: 8rem;
+				line-height: 3rem;
 				padding: 0 2rem;
 				padding-top: 12rem;
-				font-size: 7rem;
+				font-size: 3rem;
 				animation: slide-up 500ms cubic-bezier(0.075, 0.82, 0.165, 1);
 			}
 			.description {
@@ -138,10 +139,13 @@ const { title, desc } = Astro.props;
 				border: 1px solid var(--lighter-black);
 				border-radius: 1rem;
 			}
+			.red {
+				background: red;
+			}
 			@media screen and (max-width: 1400px) {
 				h1 {
-					font-size: 5rem;
-					line-height: 5.5rem;
+					font-size: 2.3rem;
+					line-height: 2.3rem;
 				}
 				h2 {
 					font-size: 1.5rem;
@@ -156,8 +160,8 @@ const { title, desc } = Astro.props;
 
 			@media screen and (max-width: 720px) {
 				h1 {
-					font-size: 4rem;
-					line-height: 4.5rem;
+					font-size: 1.8rem;
+					line-height: 1.8rem;
 					text-align: center;
 					animation: fade 1000ms cubic-bezier(0.165, 0.84, 0.44, 1);
 				}

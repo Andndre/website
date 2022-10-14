@@ -3,7 +3,6 @@ import Layout from '../layouts/Layout.astro';
 import backgroundImage from '../images/background.png';
 import downArrow from '../images/down arrow.svg';
 import aboutImage from '../images/about.png';
-import tiltedRect from '../images/tilted rect.svg';
 import BlueRedBackground from '../components/BlueRedBackground.astro';
 import Container from '../components/Container.astro';
 import Contact from '../components/Contact.astro';
@@ -20,17 +19,17 @@ if (maintenance === '1') {
 >
 	<BlueRedBackground>
 		<section id="hero">
-			<img
+			<!-- <img
 				class="background-image"
 				src={backgroundImage}
 				alt="background image"
-			/>
+			/> -->
 			<h1>Hello world! <br /> <span class="blue">My Name is Andre</span></h1>
 			<div class="down-arrow">
 				<a href="#about-me"><img src={downArrow} alt="" /></a>
 			</div>
 		</section>
-		<img id="tilted-rect" src={tiltedRect} alt="" />
+		<!-- <img id="tilted-rect" src={tiltedRect} alt="" /> -->
 		<main>
 			<section id="about-me">
 				<Container lessMargin className="hidden">
@@ -59,17 +58,9 @@ if (maintenance === '1') {
 					<br /><br />
 					<div class="flex">
 						<p>
-							<!-- TODO: fix this without invisible span -->
-							<span class="invisible"
-								>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Atque
-								cupiditate</span
-							>
-							<br />
-							*Blog* is where I share my thoughts on something, and share the knowledge
-							that I have. <span class="invisible">
-								Lorem ipsum dolor, sit amet consectetur adipisicing elit. Atque
-								cupiditate</span
-							>
+							Here is where I share my knowledge and thoughts about things such
+							as news on the internet related to programming or things that
+							interest me.
 						</p>
 						<div class="card">
 							<a class="btn" href="/blog">See my blogs</a>
@@ -81,38 +72,19 @@ if (maintenance === '1') {
 				<Container lessMargin className="hidden">
 					<h2>Project</h2>
 					<br />
-					<div class="flex">
-						<div>
-							<p>
-								*Project* Lorem ipsum dolor sit amet consectetur adipisicing
-								elit. Ipsa sint provident unde maxime ab necessitatibus, ea
-								voluptate fugiat nisi voluptas iusto molestias aspernatur
-								accusantium deserunt quod. Cum quod delectus reiciendis.
-							</p>
-							<br />
-							<div class="align-right">
-								<a class="btn" href="/project">See my projects</a>
-							</div>
-						</div>
-						<img src={aboutImage} alt="my projects" />
-					</div>
+					<p>
+						This is my all time favorites projects, you can see all my projects
+						on <a href="https://github.com/Andndre">github</a>
+					</p>
 				</Container>
 			</section>
 			<section id="contact">
 				<Container lessMargin className="hidden">
 					<h2>Contact</h2>
 					<br />
-					<div class="flex">
-						<Contact />
-						<p>
-							Lorem ipsum dolor sit amet consectetur adipisicing elit.
-							Distinctio quo veritatis eveniet nobis asperiores! Fugiat amet
-							voluptatem incidunt facilis explicabo cumque fugit veniam nam
-							inventore corrupti magnam magni a corporis repellat dolores eum
-							sapiente eos quidem beatae reiciendis asperiores molestiae
-							aliquid, laudantium officia. Ipsum quas natus hic illo et vitae.
-						</p>
-					</div>
+					<p>Want to reach out?</p>
+					<br />
+					<Contact />
 				</Container>
 			</section>
 		</main>
@@ -149,13 +121,11 @@ if (maintenance === '1') {
 		color: var(--primary);
 	}
 	main {
-		position: relative;
-		z-index: 0;
-		margin-top: -10rem;
+		margin-top: 10rem;
 	}
-	#tilted-rect {
+	/* #tilted-rect {
 		width: 100%;
-	}
+	} */
 
 	#hero {
 		background-color: inherit;

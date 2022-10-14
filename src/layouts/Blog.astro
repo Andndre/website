@@ -38,11 +38,11 @@ let { frontmatter } = Astro.props as Props;
 		</Container>
 		<OtherPosts except={frontmatter.slug} />
 	</Container>
-	<section id="comment">
+	<!-- <section id="comment">
 		<Container>
-			<BlogComments slug={frontmatter.slug} />
+			<BlogComments client:load slug={frontmatter.slug} />
 		</Container>
-	</section>
+	</section> -->
 </Layout>
 <style>
 	.blog-info {
