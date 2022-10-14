@@ -42,88 +42,90 @@ export default function App() {
 		<div className="hitung-nilai-tugas-akhir">
 			{error && <p style={{ color: 'red' }}>{error}</p>}
 			<table>
-				<tr>
-					{kolom.map((kol, i) => {
-						return <th key={'th-' + i}>{kol}</th>;
+				<tbody>
+					<tr>
+						{kolom.map((kol, i) => {
+							return <th key={'th-' + i}>{kol}</th>;
+						})}
+					</tr>
+					{rows.map((row, i) => {
+						return (
+							<tr key={'table-row-' + i}>
+								<td>
+									<input
+										onChange={(e) => {
+											rows[i].nama = e.target.value;
+											setUpdater((prev) => prev + 1);
+										}}
+										type="text"
+										placeholder="Nama"
+										value={row.nama}
+									/>
+								</td>
+								<td>
+									<input
+										onChange={(e) => {
+											const curr = parseFloat(e.target.value);
+											if (curr > 100) {
+												return;
+											}
+											rows[i].bobot = curr;
+											setUpdater((prev) => prev + 1);
+										}}
+										max={100}
+										min={0}
+										type="number"
+										placeholder="Bobot (0-100)"
+										value={row.bobot}
+									/>
+								</td>
+								<td>
+									<input
+										onChange={(e) => {
+											const curr = parseFloat(e.target.value);
+											if (curr > 100) {
+												return;
+											}
+											rows[i].nilaiMaksimal = curr;
+											setUpdater((prev) => prev + 1);
+										}}
+										type="number"
+										placeholder="Nilai Maksimal"
+										value={row.nilaiMaksimal}
+									/>
+								</td>
+								<td>
+									<input
+										onChange={(e) => {
+											const curr = parseFloat(e.target.value);
+											if (curr > 100 || curr > row.nilaiMaksimal) {
+												return;
+											}
+											rows[i].nilai = curr;
+											setUpdater((prev) => prev + 1);
+										}}
+										max={row.nilaiMaksimal}
+										min={0}
+										type="number"
+										placeholder="Nilai"
+										value={row.nilai}
+									/>
+								</td>
+								<td>
+									<button
+										onClick={() => {
+											rows.splice(i, 1);
+											setUpdater((prev) => prev + 1);
+										}}
+										className="btn red"
+									>
+										Hapus
+									</button>
+								</td>
+							</tr>
+						);
 					})}
-				</tr>
-				{rows.map((row, i) => {
-					return (
-						<tr key={'table-row-' + i}>
-							<td>
-								<input
-									onChange={(e) => {
-										rows[i].nama = e.target.value;
-										setUpdater((prev) => prev + 1);
-									}}
-									type="text"
-									placeholder="Nama"
-									value={row.nama}
-								/>
-							</td>
-							<td>
-								<input
-									onChange={(e) => {
-										const curr = parseFloat(e.target.value);
-										if (curr > 100) {
-											return;
-										}
-										rows[i].bobot = curr;
-										setUpdater((prev) => prev + 1);
-									}}
-									max={100}
-									min={0}
-									type="number"
-									placeholder="Bobot (0-100)"
-									value={row.bobot}
-								/>
-							</td>
-							<td>
-								<input
-									onChange={(e) => {
-										const curr = parseFloat(e.target.value);
-										if (curr > 100) {
-											return;
-										}
-										rows[i].nilaiMaksimal = curr;
-										setUpdater((prev) => prev + 1);
-									}}
-									type="number"
-									placeholder="Nilai Maksimal"
-									value={row.nilaiMaksimal}
-								/>
-							</td>
-							<td>
-								<input
-									onChange={(e) => {
-										const curr = parseFloat(e.target.value);
-										if (curr > 100 || curr > row.nilaiMaksimal) {
-											return;
-										}
-										rows[i].nilai = curr;
-										setUpdater((prev) => prev + 1);
-									}}
-									max={row.nilaiMaksimal}
-									min={0}
-									type="number"
-									placeholder="Nilai"
-									value={row.nilai}
-								/>
-							</td>
-							<td>
-								<button
-									onClick={() => {
-										rows.splice(i, 1);
-										setUpdater((prev) => prev + 1);
-									}}
-									className="btn red"
-								>
-									Hapus
-								</button>
-							</td>
-						</tr>
-					);
-				})}
+				</tbody>
 			</table>
 			<p>
 				{result && (
